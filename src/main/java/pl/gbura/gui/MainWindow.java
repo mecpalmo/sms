@@ -107,7 +107,7 @@ public class MainWindow extends JFrame {
         String age = ageField.getText();
         String grade = gradeField.getText();
         String studentID = studentIDField.getText();
-        resultArea.setText(dataAdapter.updateStudent(studentID, name, age, grade));
+        resultArea.setText(dataAdapter.updateStudent(name, age, grade, studentID));
     }
 
     private void displayAllStudents() {
