@@ -2,7 +2,7 @@ package pl.gbura.application.impl;
 
 import pl.gbura.application.DataAdapter;
 import pl.gbura.database.StudentManager;
-import pl.gbura.database.model.Student;
+import pl.gbura.database.domain.Student;
 import pl.gbura.database.impl.StudentManagerImpl;
 
 import java.util.ArrayList;

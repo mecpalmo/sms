@@ -8,23 +8,66 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
+/**
+ * Główne okno aplikacji
+ */
 public class MainWindow extends JFrame {
 
+    /**
+     * Pole tekstowe przedstawiające Imię i Nazwisko Studenta
+     */
     private final JTextField nameField = new JTextField();
+
+    /**
+     * Pole tekstowe przedstawiające Wiek Studenta
+     */
     private final JTextField ageField = new JTextField();
+
+    /**
+     * Pole tekstowe przedstawiające ocenę studenta
+     */
     private final JTextField gradeField = new JTextField();
+
+    /**
+     * Pole tekstowe przedstawiające ID studenta
+     */
     private final JTextField studentIDField = new JTextField();
 
+    /**
+     * Przycisk wywołujący próbę dodania studenta
+     */
     private final JButton addButton = new JButton("Add Student");
+
+    /**
+     * Przycisk wywołujący próbę usunięcia studenta
+     */
     private final JButton removeButton = new JButton("Remove Student");
+
+    /**
+     * Przycisk wywołujący próbę aktualizacji studenta
+     */
     private final JButton updateButton = new JButton("Update Student");
+
+    /**
+     * Przycisk wywołujący wyświetlenie listy wszystkich studentów
+     */
     private final JButton displayButton = new JButton("Display All Students");
+
+    /**
+     * Przycisk wywołujący wyświetlenie średniej oceny wszystkich studentów
+     */
     private final JButton averageButton = new JButton("Calculate Average");
 
+    /**
+     * Obszar przedstawiający tekstowy wynik operacji
+     */
     private final JTextArea resultArea  = new JTextArea();
 
     private final DataAdapter dataAdapter = new DataAdapterImpl();
 
+    /**
+     * Domyślny konstruktor okna głównego
+     */
     public MainWindow() {
         // Set up the frame
         setTitle("Student Management System");
@@ -90,6 +133,9 @@ public class MainWindow extends JFrame {
         averageButton.addActionListener(_ -> calculateAverage());
     }
 
+    /**
+     * Metoda używająca danych z pól tekstowych do utworzenia studenta
+     */
     private void addStudent() {
         String name = nameField.getText();
         String age = ageField.getText();
@@ -98,10 +144,17 @@ public class MainWindow extends JFrame {
         resultArea.setText(dataAdapter.addStudent(name, age, grade, studentID));
     }
 
+    /**
+     * Metoda wykonująca próbę usunięcia studenta o ID podanym w polu tekstowym
+     */
     private void removeStudent() {
         resultArea.setText(dataAdapter.removeStudent(studentIDField.getText()));
     }
 
+    /**
+     * Metoda wykonująca próbę aktualizacji danych studenta
+     * za pomocą danych z pól tekstowych
+     */
     private void updateStudent() {
         String name = nameField.getText();
         String age = ageField.getText();
@@ -110,10 +163,16 @@ public class MainWindow extends JFrame {
         resultArea.setText(dataAdapter.updateStudent(name, age, grade, studentID));
     }
 
+    /**
+     * Metoda wywołująca prezentację listy wszystkich studentów
+     */
     private void displayAllStudents() {
         resultArea.setText(dataAdapter.displayAllStudents());
     }
 
+    /**
+     * Metoda wywyołująca prezentację średniej oceny wszystkich studentów
+     */
     private void calculateAverage() {
         resultArea.setText(dataAdapter.calculateAverageGrade());
     }

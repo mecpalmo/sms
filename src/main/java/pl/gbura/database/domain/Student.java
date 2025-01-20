@@ -1,10 +1,28 @@
-package pl.gbura.database.model;
+package pl.gbura.database.domain;
 
+/**
+ * Reprezentacja rekordu tabeli student
+ */
 public class Student {
 
+    /**
+     * Imie i Nazwisko
+     */
     private String name;
+
+    /**
+     * Wiek
+     */
     private int age;
+
+    /**
+     * Ocena
+     */
     private double grade;
+
+    /**
+     * Unikalny identyfikator
+     */
     private String studentID;
 
     public Student(){
@@ -50,6 +68,11 @@ public class Student {
         this.studentID = studentID;
     }
 
+    /**
+     * Metoda zwracająca tekstowy opis obiektu Student
+     *
+     * @return opis obiektu student
+     */
     public String displayInfo() {
         return "StudentID: " + studentID +
                 ", name: " + name +

@@ -1,6 +1,6 @@
 package pl.gbura.database.impl;
 
-import pl.gbura.database.model.Student;
+import pl.gbura.database.domain.Student;
 import pl.gbura.database.StudentManager;
 
 import java.sql.*;
