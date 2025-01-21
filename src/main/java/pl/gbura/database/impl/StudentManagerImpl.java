@@ -6,10 +6,17 @@ import pl.gbura.database.StudentManager;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * Implementacja interfejsu StudentManager
+ * @see StudentManager
+ */
 public class StudentManagerImpl implements StudentManager {
 
     private final String URL = "jdbc:sqlite:database.db";
 
+    /**
+     * Domyślny konstruktor StudentManager
+     */
     public StudentManagerImpl() {
         initialize();
     }
@@ -17,52 +24,40 @@ public class StudentManagerImpl implements StudentManager {
     @Override
     public void addStudent(Student student) throws Exception {
         String insertSQL = "INSERT INTO STUDENTS (name, age, grade, studentID) VALUES (?, ?, ?, ?);";
-        try {
-            Connection conn = DriverManager.getConnection(URL);
-            PreparedStatement pstmt = conn.prepareStatement(insertSQL);
-            pstmt.setString(1, student.getName());
-            pstmt.setInt(2, student.getAge());
-            pstmt.setDouble(3, student.getGrade());
-            pstmt.setString(4, student.getStudentID());
-            pstmt.executeUpdate();
-            pstmt.close();
-            conn.close();
-        } catch (SQLException e) {
-            throw new Exception(e.getMessage());
-        }
+        Connection conn = DriverManager.getConnection(URL);
+        PreparedStatement pstmt = conn.prepareStatement(insertSQL);
+        pstmt.setString(1, student.getName());
+        pstmt.setInt(2, student.getAge());
+        pstmt.setDouble(3, student.getGrade());
+        pstmt.setString(4, student.getStudentID());
+        pstmt.executeUpdate();
+        pstmt.close();
+        conn.close();
     }
 
     @Override
     public void removeStudent(String studentID) throws Exception {
         String deleteSQL = "DELETE FROM STUDENTS WHERE studentID = ?;";
-        try {
-            Connection conn = DriverManager.getConnection(URL);
-            PreparedStatement pstmt = conn.prepareStatement(deleteSQL);
-            pstmt.setString(1, studentID);
-            pstmt.executeUpdate();
-            pstmt.close();
-            conn.close();
-        } catch (SQLException e) {
-            throw new Exception(e.getMessage());
-        }
+        Connection conn = DriverManager.getConnection(URL);
+        PreparedStatement pstmt = conn.prepareStatement(deleteSQL);
+        pstmt.setString(1, studentID);
+        pstmt.executeUpdate();
+        pstmt.close();
+        conn.close();
     }
 
     @Override
     public void updateStudent(String studentID, String newName, int newAge, double newGrade) throws Exception {
         String updateSQL = "UPDATE STUDENTS SET name = ?, age = ?, grade = ? WHERE studentID = ?;";
-        try {
-            Connection conn = DriverManager.getConnection(URL);
-            PreparedStatement pstmt = conn.prepareStatement(updateSQL);
-            pstmt.setString(1, newName);
-            pstmt.setInt(2, newAge);
-            pstmt.setDouble(3, newGrade);
-            pstmt.setString(4, studentID);
-            pstmt.executeUpdate();
-            pstmt.close();
-            conn.close();
-        } catch (Exception e) {
-            throw new Exception(e.getMessage());
-        }
+        Connection conn = DriverManager.getConnection(URL);
+        PreparedStatement pstmt = conn.prepareStatement(updateSQL);
+        pstmt.setString(1, newName);
+        pstmt.setInt(2, newAge);
+        pstmt.setDouble(3, newGrade);
+        pstmt.setString(4, studentID);
+        pstmt.executeUpdate();
+        pstmt.close();
+        conn.close();
     }
 
     @Override

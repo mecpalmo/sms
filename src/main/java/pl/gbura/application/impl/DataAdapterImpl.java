@@ -7,9 +7,20 @@ import pl.gbura.database.impl.StudentManagerImpl;
 
 import java.util.ArrayList;
 
+/**
+ * Implementacja interfejsu DataAdapter
+ * @see DataAdapter
+ */
 public class DataAdapterImpl implements DataAdapter {
 
-    private final StudentManager studentManager = new StudentManagerImpl();
+    private final StudentManager studentManager;
+
+    /**
+     * Domyślny konstruktor klasy DataAdapterImpl
+     */
+    public DataAdapterImpl(){
+        this.studentManager = new StudentManagerImpl();
+    }
 
     @Override
     public String addStudent(String name, String age, String grade, String studentID) {

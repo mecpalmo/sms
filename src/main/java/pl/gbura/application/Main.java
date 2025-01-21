@@ -5,10 +5,23 @@ import pl.gbura.gui.MainWindow;
 import javax.swing.*;
 
 /**
- * Główna Klasa aplikacji
+ * Aplikacja SMS
+ * Student Manager System
  */
 public class Main {
 
+    /**
+     * Domyślny konstruktor głównej klasy aplikacji
+     */
+    public Main(){
+
+    }
+
+    /**
+     * Główna metoda rozpoczynająca działanie aplikacji
+     *
+     * @param args argumenty uruchomieniowe
+     */
     public static void main(String[] args) {
 
         SwingUtilities.invokeLater(() -> {

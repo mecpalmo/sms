@@ -8,10 +8,10 @@ public interface DataAdapter {
     /**
      * Metoda dodająca studenta do bazy danych
      *
-     * @param name - Imię i nazwisko studenta
-     * @param age - Wiek Studenta
-     * @param grade - Ocena studenta
-     * @param studentID - ID studenta
+     * @param name Imię i nazwisko studenta
+     * @param age Wiek Studenta
+     * @param grade Ocena studenta
+     * @param studentID ID studenta
      * @return wiadomość opisująca rezultat operacji na bazie danych
      */
     String addStudent(String name, String age, String grade, String studentID);
@@ -19,7 +19,7 @@ public interface DataAdapter {
     /**
      * Metoda usuwająca studenta z bazy danych
      *
-     * @param studentID - ID studenta do usunięcia
+     * @param studentID ID studenta do usunięcia
      * @return wiadomość opisująca rezultat operacji na bazie danych
      */
     String removeStudent(String studentID);
@@ -27,10 +27,10 @@ public interface DataAdapter {
     /**
      * Metoda aktualizująca dane studenta na bazie danych
      *
-     * @param name - Imię i nazwisko studenta
-     * @param age - Wiek studenta
-     * @param grade - Ocena Studenta
-     * @param studentID - ID studenta do aktualizacji
+     * @param name Imię i nazwisko studenta
+     * @param age Wiek studenta
+     * @param grade Ocena Studenta
+     * @param studentID ID studenta do aktualizacji
      * @return wiadomość opisująca rezultat operacji na bazie danych
      */
     String updateStudent(String name, String age, String grade, String studentID);

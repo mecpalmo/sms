@@ -11,25 +11,25 @@ public interface StudentManager {
 
     /**
      * Metoda dodająca obiekt Klasy Student do tabeli Student na bazie danych
-     * @param student - obiekt opisujący dane studenta
-     * @throws Exception
+     * @param student obiekt opisujący dane studenta
+     * @throws Exception w sytuacji błędnej operacji na bazie danych
      */
     void addStudent(Student student) throws Exception;
 
     /**
      * Metoda usuwająca studenta z tabeli Student
-     * @param studentID - ID studenta do usunięcia
-     * @throws Exception
+     * @param studentID ID studenta do usunięcia
+     * @throws Exception w sytuacji błędnej operacji na bazie danych
      */
     void removeStudent(String studentID) throws Exception;
 
     /**
      * Metoda aktualizująca dane studenta na tabeli student
-     * @param studentID - ID studenta do zaktualizowania
-     * @param name - Imię i nazwisko studenta
-     * @param age - Wiek studenta
-     * @param grade - Ocena studenta
-     * @throws Exception
+     * @param studentID ID studenta do zaktualizowania
+     * @param name Imię i nazwisko studenta
+     * @param age Wiek studenta
+     * @param grade Ocena studenta
+     * @throws Exception w sytuacji błędnej operacji na bazie danych
      */
     void updateStudent(String studentID, String name, int age, double grade) throws Exception;
 

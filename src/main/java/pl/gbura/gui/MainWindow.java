@@ -63,6 +63,9 @@ public class MainWindow extends JFrame {
      */
     private final JTextArea resultArea  = new JTextArea();
 
+    /**
+     * Obiekt klasy DataAdapter do wykonywania operacji wywołanych przez użytkownika
+     */
     private final DataAdapter dataAdapter = new DataAdapterImpl();
 
     /**
@@ -125,7 +128,7 @@ public class MainWindow extends JFrame {
         return resultPanel;
     }
 
-    public void addActionEventHandlers(){
+    private void addActionEventHandlers(){
         addButton.addActionListener(_ -> addStudent());
         removeButton.addActionListener(_ -> removeStudent());
         updateButton.addActionListener(_ -> updateStudent());
